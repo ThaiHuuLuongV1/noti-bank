@@ -21,14 +21,17 @@ const data = {
 
 // Tạo nội dung thông báo cho Discord
 const message = {
-    content: `**Thông báo giao dịch từ MBBank**\n` +
+    content: `@here **Thông báo giao dịch từ MBBank**\n` +
              `**Ngày giao dịch**: ${data.transactionDate}\n` +
              `**Số tài khoản**: ${data.accountNumber}\n` +
              `**Nội dung giao dịch**: ${data.content}\n` +
              `**Số tiền giao dịch**: ${data.transferAmount.toLocaleString()} VND\n` +
              `**Loại giao dịch**: ${data.transferType}\n` +
              `**Mã tham chiếu**: ${data.referenceCode}\n` +
-             `**Mô tả**: ${data.description}`
+             `**Mô tả**: ${data.description}`,
+    allowed_mentions: {
+        parse: ["everyone", "here"] // Cho phép tag @everyone và @here
+    }
 };
 
 // Gửi dữ liệu đến Discord Webhook
