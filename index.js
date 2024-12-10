@@ -21,17 +21,14 @@ app.post("/webhook", async (req, res) => {
 
         // Tạo nội dung thông báo cho Discord
         const message = {
-            content: `@here **Thông báo giao dịch từ ${data.gateway || "ngân hàng"}**\n` +
+            content: `**Thông báo giao dịch từ ${data.gateway || "ngân hàng"}**\n` +
                 `**Ngày giao dịch**: ${data.transactionDate || "N/A"}\n` +
                 `**Số tài khoản**: ${data.accountNumber || "N/A"}\n` +
                 `**Nội dung giao dịch**: ${data.content || "N/A"}\n` +
                 `**Số tiền giao dịch**: ${(data.transferAmount || 0).toLocaleString()} VND\n` +
                 `**Loại giao dịch**: ${data.transferType || "N/A"}\n` +
                 `**Mã tham chiếu**: ${data.referenceCode || "N/A"}\n` +
-                `**Mô tả**: ${data.description || "N/A"}`,
-            allowed_mentions: {
-                parse: ["everyone", "here"] // Cho phép @here hoạt động
-            }
+                `**Mô tả**: ${data.description || "N/A"}`
         };
 
         // Gửi thông báo đến Discord Webhook
