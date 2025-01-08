@@ -7,7 +7,7 @@ const PORT = 3000;
 
 // Webhook URL Discord của bạn
 const discordWebhookUrl =
-    "https://discord.com/api/webhooks/1316048104314900583/dLU83jhlRqbC2hZmBubg7ZKl9ieSncEQjvKPH9__7hBkj25yIXK8OopIC61VHU_g12MS";
+    "https://discord.com/api/webhooks/1326395565743018097/i4abnRXDaJqiXy2Qk7Ei8u6eVhQGamATsYAmzybsHnN8rie095kdqR7TEW7c2pOhB3Zj";
 
 // Middleware để parse JSON
 app.use(bodyParser.json());
