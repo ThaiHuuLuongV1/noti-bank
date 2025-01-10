@@ -3,7 +3,7 @@ const { Client, GatewayIntentBits } = require("discord.js");
 const bodyParser = require("body-parser");
 
 const app = express();
-const PORT = 3000;
+const PORT = 8080;
 
 // Token của bot Discord
 const BOT_TOKEN = process.env.DISCORD_BOT_TOKEN;
