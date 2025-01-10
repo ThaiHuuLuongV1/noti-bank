@@ -38,7 +38,7 @@ app.post("/webhook", async (req, res) => {
         const channel = await client.channels.fetch(CHANNEL_ID);
         if (channel && channel.isTextBased()) {
             await channel.send(messageContent);
-            console.log("Gửi thông báo thành công đến kênh Discord.");
+            console.log("Gửi thông báo thành công đến kênh Discord .");
         } else {
             console.error("Không tìm thấy kênh hoặc kênh không hỗ trợ gửi tin nhắn.");
         }
