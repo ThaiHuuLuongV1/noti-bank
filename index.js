@@ -44,7 +44,7 @@ app.post("/webhook", async (req, res) => {
         }
 
         // Phản hồi thành công
-        res.status(200).send("Webhook received and notification sent!");
+        res.status(200).send("Webhook received and notification sent !");
     } catch (error) {
         console.error("Lỗi khi xử lý Webhook:", error);
         res.status(500).send("Error processing Webhook.");
