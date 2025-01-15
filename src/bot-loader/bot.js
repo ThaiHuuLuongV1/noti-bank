@@ -6,14 +6,23 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 
 const BOT_TOKEN = process.env.DISCORD_BOT_TOKEN;
 
+const requiredRoleIds = ['1277131467130146886', '1277260852541526056', '1294218721107378207', '1326398921865560085']; // Thay ANOTHER_ROLE_ID bằng ID vai trò mới
+
 client.once('ready', () => {
     console.log(`${client.user.tag} đã sẵn sàng!`);
 });
 
 client.on('messageCreate', async (message) => {
     if (message.content === '!full') {
-        try {
 
+        const hasRequiredRole = requiredRoleIds.some(roleId => message.member.roles.cache.has(roleId));
+
+        if (!hasRequiredRole) {
+            await message.reply('Bạn không phải Nhân viên!');
+            return;
+        }
+        
+        try {
             const embed = new EmbedBuilder()
                 .setColor('#0099ff')
                 .setTitle('Amigos Loader')
@@ -25,8 +34,122 @@ client.on('messageCreate', async (message) => {
                 })
                 .addFields(
                     {
-                        name: `Loader Full`, 
+                        name: `Loader Full`,
                         value: "[Link loader Amigos Full](https://mega.nz/file/PAt1wJ4K#B2KkuUBSysehJw3uQXLrzXQ6cyTGvpz5xi5zNaO9brs)",
+                    },
+                )
+                .setTimestamp()
+                .setFooter({
+                    text: "BOT được phát triển bởi AMIGOS",
+                    iconURL: linkImg
+                });
+
+            await message.reply({ embeds: [embed] });
+
+        } catch (error) {
+            console.error('Lỗi khi lấy dữ liệu giao dịch:', error);
+            await message.reply('Đã xảy ra lỗi khi xử lý giao dịch của bạn.');
+        }
+    }
+    if (message.content === '!vip') {
+
+        const hasRequiredRole = requiredRoleIds.some(roleId => message.member.roles.cache.has(roleId));
+
+        if (!hasRequiredRole) {
+            await message.reply('Bạn không phải Nhân viên!');
+            return;
+        }
+        
+        try {
+            const embed = new EmbedBuilder()
+                .setColor('#0099ff')
+                .setTitle('Amigos Loader')
+                .setThumbnail(linkImg)
+                .setAuthor({
+                    name: "AMIGOS",
+                    iconURL: linkImg,
+                    url: "https://discord.com/channels/1277045852803694643/1326906130303029299",
+                })
+                .addFields(
+                    {
+                        name: `Loader Vip`,
+                        value: "[Link loader Amigos Vip](https://mega.nz/file/mBMHEaDB#YZ7bk0gnnFaBbDY7AO3LGNP1HxXVz8z3UpSl0ZU-q1Q)",
+                    },
+                )
+                .setTimestamp()
+                .setFooter({
+                    text: "BOT được phát triển bởi AMIGOS",
+                    iconURL: linkImg
+                });
+
+            await message.reply({ embeds: [embed] });
+
+        } catch (error) {
+            console.error('Lỗi khi lấy dữ liệu giao dịch:', error);
+            await message.reply('Đã xảy ra lỗi khi xử lý giao dịch của bạn.');
+        }
+    }
+    if (message.content === '!unlock') {
+
+        const hasRequiredRole = requiredRoleIds.some(roleId => message.member.roles.cache.has(roleId));
+
+        if (!hasRequiredRole) {
+            await message.reply('Bạn không phải Nhân viên!');
+            return;
+        }
+        
+        try {
+            const embed = new EmbedBuilder()
+                .setColor('#0099ff')
+                .setTitle('Amigos Loader')
+                .setThumbnail(linkImg)
+                .setAuthor({
+                    name: "AMIGOS",
+                    iconURL: linkImg,
+                    url: "https://discord.com/channels/1277045852803694643/1326906130303029299",
+                })
+                .addFields(
+                    {
+                        name: `Loader Unlock All`,
+                        value: "[Link loader Amigos Unlock All](https://mega.nz/file/aNNwCKrD#5qpNffczmcJQCpAPeePx2BxQzluLOnpY7jXAJT9Q5WA)",
+                    },
+                )
+                .setTimestamp()
+                .setFooter({
+                    text: "BOT được phát triển bởi AMIGOS",
+                    iconURL: linkImg
+                });
+
+            await message.reply({ embeds: [embed] });
+
+        } catch (error) {
+            console.error('Lỗi khi lấy dữ liệu giao dịch:', error);
+            await message.reply('Đã xảy ra lỗi khi xử lý giao dịch của bạn.');
+        }
+    }
+    if (message.content === '!standart') {
+
+        const hasRequiredRole = requiredRoleIds.some(roleId => message.member.roles.cache.has(roleId));
+
+        if (!hasRequiredRole) {
+            await message.reply('Bạn không phải Nhân viên!');
+            return;
+        }
+        
+        try {
+            const embed = new EmbedBuilder()
+                .setColor('#0099ff')
+                .setTitle('Amigos Loader')
+                .setThumbnail(linkImg)
+                .setAuthor({
+                    name: "AMIGOS",
+                    iconURL: linkImg,
+                    url: "https://discord.com/channels/1277045852803694643/1326906130303029299",
+                })
+                .addFields(
+                    {
+                        name: `Loader Standart`,
+                        value: "[Link loader Amigos Standart](https://mega.nz/file/XMFH1CwK#qPlp5dVDejNbjAeuLd2SqfFr44gjKJ5MWhyR76c_XPM)",
                     },
                 )
                 .setTimestamp()
