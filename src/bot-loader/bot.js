@@ -149,7 +149,7 @@ client.on('messageCreate', async (message) => {
                 .addFields(
                     {
                         name: `Loader Standart`,
-                        value: "[Link loader Amigos Standart](https://mega.nz/file/XMFH1CwK#qPlp5dVDejNbjAeuLd2SqfFr44gjKJ5MWhyR76c_XPM)",
+                        value: "[Link loader Amigos Standart](https://mega.nz/file/PE8xRAiT#XN_aMbE9RM7pS-4G_ApGQCpf7WbJipIAckhu8hh_-x8)",
                     },
                 )
                 .setTimestamp()
