@@ -40,7 +40,7 @@ client.on('messageCreate', async (message) => {
 
             // Gửi tin nhắn riêng (DM)
             const dmChannel = await message.author.createDM();
-            await dmChannel.send(`Thông tin tài khoản của bạn: ${existingKeyCheat.KeyCheatName}`);
+            await dmChannel.send(`Thông tin tài khoản của bạn: ${existingKeyCheat.key}`);
 
             // Cập nhật trạng thái KeyCheat
             existingKeyCheat.status = true;
@@ -102,7 +102,7 @@ client.on('messageCreate', async (message) => {
 
             // Gửi tin nhắn riêng (DM)
             const dmChannel = await message.author.createDM();
-            await dmChannel.send(`Thông tin tài khoản của bạn: ${existingKeyCheat.KeyCheatName}`);
+            await dmChannel.send(`Thông tin tài khoản của bạn: ${existingKeyCheat.key}`);
 
             // Cập nhật trạng thái KeyCheat
             existingKeyCheat.status = true;
