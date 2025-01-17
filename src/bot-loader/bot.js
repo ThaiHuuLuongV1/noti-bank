@@ -73,7 +73,7 @@ client.on('messageCreate', async (message) => {
                 .addFields(
                     {
                         name: `Loader Vip`,
-                        value: "[Link loader Amigos Vip](https://mega.nz/file/mBMHEaDB#YZ7bk0gnnFaBbDY7AO3LGNP1HxXVz8z3UpSl0ZU-q1Q)",
+                        value: "[Link loader Amigos Vip](https://mega.nz/file/bB1DBQjY#r3jexgNyKa48Ex1bfeagFCA_49AgH6x1-uGKoO-8SZs)",
                     },
                 )
                 .setTimestamp()
