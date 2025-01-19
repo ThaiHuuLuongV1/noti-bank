@@ -89,6 +89,44 @@ client.on('messageCreate', async (message) => {
             await message.reply('Đã xảy ra lỗi khi xử lý giao dịch của bạn.');
         }
     }
+    if (message.content === '!vipnew') {
+
+        const hasRequiredRole = requiredRoleIds.some(roleId => message.member.roles.cache.has(roleId));
+
+        if (!hasRequiredRole) {
+            await message.reply('Bạn không phải Nhân viên!');
+            return;
+        }
+        
+        try {
+            const embed = new EmbedBuilder()
+                .setColor('#0099ff')
+                .setTitle('Amigos Loader')
+                .setThumbnail(linkImg)
+                .setAuthor({
+                    name: "AMIGOS",
+                    iconURL: linkImg,
+                    url: "https://discord.com/channels/1277045852803694643/1326906130303029299",
+                })
+                .addFields(
+                    {
+                        name: `Loader Vip New`,
+                        value: "[Link loader Amigos Vip](https://mega.nz/file/3IUyHDpa#cBO31k5vpPVdOCuVIhDMSQzL05fuw7UF_xdQFWH4-Uw)",
+                    },
+                )
+                .setTimestamp()
+                .setFooter({
+                    text: "BOT được phát triển bởi AMIGOS",
+                    iconURL: linkImg
+                });
+
+            await message.reply({ embeds: [embed] });
+
+        } catch (error) {
+            console.error('Lỗi khi lấy dữ liệu giao dịch:', error);
+            await message.reply('Đã xảy ra lỗi khi xử lý giao dịch của bạn.');
+        }
+    }
     if (message.content === '!unlock') {
 
         const hasRequiredRole = requiredRoleIds.some(roleId => message.member.roles.cache.has(roleId));
