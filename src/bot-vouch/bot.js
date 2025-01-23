@@ -137,14 +137,31 @@ client.on('interactionCreate', async (interaction) => {
             // Xóa ảnh người dùng đã gửi lên sau khi bot đã sử dụng
             await collected.first().delete();
 
-            // Lưu lại ID của tin nhắn vouch
-            vouchMessageId = sentEmbedMessage.id;
+            // Đợi 5 giây và gửi lại nút Vouch
+            setTimeout(async () => {
+                const vouchButton = new ButtonBuilder()
+                    .setCustomId('vouch_button')
+                    .setLabel('Vouch')
+                    .setStyle(ButtonStyle.Primary);
+
+                const actionRow = new ActionRowBuilder().addComponents(vouchButton);
+
+                const vouchChannel = await client.channels.fetch(VOUCH_CHANNEL_ID);
+                const sentMessage = await vouchChannel.send({
+                    content: 'Hãy bấm vào nút dưới đây để vouch!',
+                    components: [actionRow],
+                });
+
+                vouchMessageId = sentMessage.id;
+            }, 5000); // Đợi 5 giây trước khi gửi nút
+
         } catch (error) {
             console.error('Error handling modal submit:', error);
             await interaction.reply({ content: 'Đã xảy ra lỗi khi gửi thông tin vouch. Vui lòng thử lại!', ephemeral: true });
         }
     }
 });
+
 
 
 client.login(BOT_TOKEN);
