@@ -73,7 +73,45 @@ client.on('messageCreate', async (message) => {
                 .addFields(
                     {
                         name: `Loader Vip`,
-                        value: "[Link loader Amigos Vip](https://mega.nz/file/nI9ARBzD#8deYuzRP6o30jCirD7k_IYPxq3CNQWH7EaogNx4xtK4)",
+                        value: "[Link loader Amigos Vip](https://mega.nz/file/GUdRnTDa#asgqc54GHZvlFraVb5G-AR9DBebr5FMFsRhVvuHRC4A)",
+                    },
+                )
+                .setTimestamp()
+                .setFooter({
+                    text: "BOT được phát triển bởi AMIGOS",
+                    iconURL: linkImg
+                });
+
+            await message.reply({ embeds: [embed] });
+
+        } catch (error) {
+            console.error('Lỗi khi lấy dữ liệu giao dịch:', error);
+            await message.reply('Đã xảy ra lỗi khi xử lý giao dịch của bạn.');
+        }
+    }
+    if (message.content === '!onlyaim') {
+
+        const hasRequiredRole = requiredRoleIds.some(roleId => message.member.roles.cache.has(roleId));
+
+        if (!hasRequiredRole) {
+            await message.reply('Bạn không phải Nhân viên!');
+            return;
+        }
+        
+        try {
+            const embed = new EmbedBuilder()
+                .setColor('#0099ff')
+                .setTitle('Amigos Loader')
+                .setThumbnail(linkImg)
+                .setAuthor({
+                    name: "AMIGOS",
+                    iconURL: linkImg,
+                    url: "https://discord.com/channels/1277045852803694643/1326906130303029299",
+                })
+                .addFields(
+                    {
+                        name: `Loader Only Aim`,
+                        value: "[Link loader Amigos Only Aim](https://mega.nz/file/Xd1TSByY#uT7MIOpBaIGb6cmv-SWojD20bT43G6lQPYGtWetOqPM)",
                     },
                 )
                 .setTimestamp()
@@ -187,7 +225,7 @@ client.on('messageCreate', async (message) => {
                 .addFields(
                     {
                         name: `Loader Standart`,
-                        value: "[Link loader Amigos Standart](https://mega.nz/file/PE8xRAiT#XN_aMbE9RM7pS-4G_ApGQCpf7WbJipIAckhu8hh_-x8)",
+                        value: "[Link loader Amigos Standart](https://mega.nz/file/jYlnBbQJ#0tPsLRUvcEvJ-ScGfsOEJ4gZB-p-RH-jVWM9iSajkOo)",
                     },
                 )
                 .setTimestamp()
@@ -203,6 +241,7 @@ client.on('messageCreate', async (message) => {
             await message.reply('Đã xảy ra lỗi khi xử lý giao dịch của bạn.');
         }
     }
+
 });
 
 client.login(BOT_TOKEN).catch(error => {
